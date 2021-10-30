@@ -18,7 +18,7 @@ services:
     networks:
       - net
     volumes:
-      - vol:/data
+      - vol/node-red:/data
   grafana:    
     image: grafana/grafana:latest
     restart: unless-stopped
@@ -29,8 +29,8 @@ services:
     networks:
       - net
     volumes:
-      - vol:/data
-
+      - vol/grafana/config:/etc/grafana/
+      - vol/grafana/data:/var/lib/grafana
 volumes:
   vol:
 
