@@ -8,7 +8,7 @@ version: "3.7"
 
 services:
   node-red:
-    build: https://raw.githubusercontent.com/vilaj/SmartIES-nodered/main/Dokerfile-nodered
+    build: https://raw.githubusercontent.com/vilaj/IES/main/stacks/SmartIES/Dokerfile-nodered
     image: nodered:smartIES
     restart: unless-stopped
     environment:
