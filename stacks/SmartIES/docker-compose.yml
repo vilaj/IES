@@ -22,8 +22,6 @@ services:
   grafana:    
     image: grafana/grafana:latest
     restart: unless-stopped
-    environment:
-      - GF_INSTALL_PLUGINS=agenty-flowcharting-panel,natel-discrete-panel,aidanmountford-html-panel,isaozler-paretochart-panel
     ports:
       - 33000:3000
     networks:
