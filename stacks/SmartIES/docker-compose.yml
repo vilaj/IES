@@ -32,7 +32,9 @@ services:
       - vol/grafana/config:/etc/grafana/
       - vol/grafana/data:/var/lib/grafana
 volumes:
-  vol:
+  vol/node-red:
+  vol/grafana/config:
+  vol/grafana/data:
 
 networks:
   net:
