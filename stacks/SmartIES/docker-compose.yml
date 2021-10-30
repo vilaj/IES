@@ -18,7 +18,7 @@ services:
     networks:
       - net
     volumes:
-      - vol/node-red:/data
+      - /var/lib/docker/volumes/smarties_vol/_data/node-red:/data
   grafana:    
     image: grafana/grafana:latest
     restart: unless-stopped
@@ -29,12 +29,10 @@ services:
     networks:
       - net
     volumes:
-      - vol/grafana/config:/etc/grafana/
-      - vol/grafana/data:/var/lib/grafana
+      - /var/lib/docker/volumes/smarties_vol/_data/grafana/config:/etc/grafana/
+      - /var/lib/docker/volumes/smarties_vol/_data/grafana/data:/var/lib/grafana
 volumes:
-  vol/node-red:
-  vol/grafana/config:
-  vol/grafana/data:
+  vol:
 
 networks:
   net:
