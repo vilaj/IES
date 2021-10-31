@@ -8,7 +8,9 @@ version: "3.7"
 
 services:
   node-red:
-    build: Dokerfile-nodered
+    build: 
+      context: ./stacks/SmartIES/
+      dockerfile: Dokerfile-nodered
     image: nodered:smartIES
     restart: unless-stopped
     environment:
