@@ -31,19 +31,24 @@ services:
     volumes:
       - grafana-config:/etc/grafana/
       - grafana-data:/var/lib/grafana
-  MQTT:    
-    image: eclipse-mosquitto:latest
+  MQTT: 
+    image: eclipse-mosquitto
     restart: unless-stopped
     environment:
-      - DEBIAN_FRONTEND=noninteractive
+      - TZ=Europe/Madrid
     ports:
       - 31883:1883
-    networks:
-      - net
+      - 38883:8883
+      - 39001:9001
+    volumes:
+      - mosquitto_data:/mosquitto/data
+      - /root/mqtt/dm-mosquitto/config:/mosquitto/config
+      - /root/mqtt/dm-mosquitto/ssl:/etc/mosquitto/ssl
 volumes:
   node-red:
   grafana-config:
   grafana-data:
+  mosquitto_data:
 
 networks:
   net:
