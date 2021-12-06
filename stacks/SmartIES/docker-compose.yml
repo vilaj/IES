@@ -32,7 +32,8 @@ services:
       - grafana-config:/etc/grafana/
       - grafana-data:/var/lib/grafana
   MQTT: 
-    image: eclipse-mosquitto:latest
+    build: https://raw.githubusercontent.com/vilaj/IES/main/stacks/SmartIES/Dokerfile-mosquitto
+    image: mosquitto:smartIES
     restart: unless-stopped
     environment:
       - TZ=Europe/Madrid
