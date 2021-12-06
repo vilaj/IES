@@ -41,11 +41,24 @@ services:
       - 31883:1883
       - 38883:8883
       - 39001:9001
+  timescaleDB:    
+    image: timescale/timescaledb:latest-pg12
+    restart: unless-stopped
+    environment:
+      - PGDATA=/var/lib/postgresql/data
+      - POSTGRES_PASSWORD=timescaleDB
+    ports:
+      - 35432:5432
+    networks:
+      - net
+    volumes:
+      - timescaledb-data:/var/lib/postgresql/data      
 volumes:
   node-red:
   grafana-config:
   grafana-data:
   mosquitto_data:
+  timescaledb-data:
 
 networks:
   net:
