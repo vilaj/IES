@@ -44,7 +44,7 @@ services:
     volumes:
       - grafana-config:/etc/grafana/
       - grafana-data:/var/lib/grafana
-grafana-image-renderer:    
+  grafana-image-renderer:    
     image: grafana/grafana-image-renderer:latest
     deploy:
       resources:
