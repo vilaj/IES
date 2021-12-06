@@ -8,7 +8,7 @@ version: "3.7"
 
 services:
   node-red:
-    build: https://raw.githubusercontent.com/vilaj/IES/main/stacks/SmartIES/Dokerfile-nodered
+    build: https://raw.githubusercontent.com/vilaj/IES/main/stacks/SmartIES/Dockerfile-nodered
     image: nodered:smartIES
     restart: unless-stopped
     environment:
@@ -32,7 +32,7 @@ services:
       - grafana-config:/etc/grafana/
       - grafana-data:/var/lib/grafana
   MQTT: 
-    build: https://raw.githubusercontent.com/vilaj/IES/main/stacks/SmartIES/Dokerfile-mosquitto
+    build: https://raw.githubusercontent.com/vilaj/IES/main/stacks/SmartIES/Dockerfile-mosquitto
     image: mosquitto:smartIES
     restart: unless-stopped
     environment:
