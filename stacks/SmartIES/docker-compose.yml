@@ -14,7 +14,7 @@ services:
       resources:
         limits:
           cpus: '0.50'
-          memory: 4000M
+          memory: 4g
     restart: unless-stopped
     environment:
       - TZ=Europe/Madrid
@@ -29,11 +29,11 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.50'
+          cpus: '1'
           memory: 4000M
         reservations:
           cpus: '0.10'
-          memory: 1000M
+          memory: 1g
     restart: unless-stopped
     environment:
       - GF_INSTALL_PLUGINS=agenty-flowcharting-panel,natel-discrete-panel,aidanmountford-html-panel,isaozler-paretochart-panel
@@ -50,7 +50,7 @@ services:
       resources:
         limits:
           cpus: '0.10'
-          memory: 1000M
+          memory: 1g
     restart: unless-stopped
     ports:
       - 38081:8081
@@ -63,7 +63,7 @@ services:
       resources:
         limits:
           cpus: '0.20'
-          memory: 1000M
+          memory: 1g
     restart: unless-stopped
     environment:
       - TZ=Europe/Madrid
@@ -76,11 +76,11 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.70'
-          memory: 6000M
+          cpus: '1'
+          memory: 5g
         reservations:
           cpus: '0.25'
-          memory: 3000M
+          memory: 2g
     restart: unless-stopped
     environment:
       - PGDATA=/var/lib/postgresql/data
@@ -97,7 +97,7 @@ services:
       resources:
         limits:
           cpus: '0.50'
-          memory: 4000M
+          memory: 4g
     restart: unless-stopped
     environment:
       - PGADMIN_DEFAULT_EMAIL=jaume.vila@installux-es.com
