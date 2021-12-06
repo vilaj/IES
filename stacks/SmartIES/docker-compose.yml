@@ -10,6 +10,11 @@ services:
   node-red:
     build: https://raw.githubusercontent.com/vilaj/IES/main/stacks/SmartIES/Dockerfile-nodered
     image: nodered:smartIES
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 4000M
     restart: unless-stopped
     environment:
       - TZ=Europe/Madrid
@@ -21,6 +26,14 @@ services:
       - node-red:/data
   grafana:    
     image: grafana/grafana:latest
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 4000M
+        reservations:
+          cpus: '0.10'
+          memory: 1000M
     restart: unless-stopped
     environment:
       - GF_INSTALL_PLUGINS=agenty-flowcharting-panel,natel-discrete-panel,aidanmountford-html-panel,isaozler-paretochart-panel
@@ -31,9 +44,26 @@ services:
     volumes:
       - grafana-config:/etc/grafana/
       - grafana-data:/var/lib/grafana
+grafana-image-renderer:    
+    image: grafana/grafana-image-renderer:latest
+    deploy:
+      resources:
+        limits:
+          cpus: '0.10'
+          memory: 1000M
+    restart: unless-stopped
+    ports:
+      - 38081:8081
+    networks:
+      - net
   MQTT: 
     build: https://raw.githubusercontent.com/vilaj/IES/main/stacks/SmartIES/Dockerfile-mosquitto
-    image: mosquitto:smartIES
+    image: mosquitto:smartIES 
+    deploy:
+      resources:
+        limits:
+          cpus: '0.20'
+          memory: 1000M
     restart: unless-stopped
     environment:
       - TZ=Europe/Madrid
@@ -43,6 +73,14 @@ services:
       - 39001:9001
   timescaleDB:    
     image: timescale/timescaledb:latest-pg12
+    deploy:
+      resources:
+        limits:
+          cpus: '0.70'
+          memory: 6000M
+        reservations:
+          cpus: '0.25'
+          memory: 3000M
     restart: unless-stopped
     environment:
       - PGDATA=/var/lib/postgresql/data
@@ -55,6 +93,11 @@ services:
       - timescaledb-data:/var/lib/postgresql/data   
   pgadmin:    
     image: dpage/pgadmin4:latest
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 4000M
     restart: unless-stopped
     environment:
       - PGADMIN_DEFAULT_EMAIL=jaume.vila@installux-es.com
