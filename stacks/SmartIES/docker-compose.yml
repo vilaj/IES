@@ -52,7 +52,17 @@ services:
     networks:
       - net
     volumes:
-      - timescaledb-data:/var/lib/postgresql/data      
+      - timescaledb-data:/var/lib/postgresql/data   
+  pgadmin:    
+    image: dpage/pgadmin4:latest
+    restart: unless-stopped
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=jaume.vila@installux-es.com
+      - PGADMIN_DEFAULT_PASSWORD=timescaleDB
+    ports:
+      - 32080:80
+    networks:
+      - net 
 volumes:
   node-red:
   grafana-config:
