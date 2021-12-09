@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
 FROM nodered/node-red:latest 
-ARG tag
-ADD --chown=1000 https://raw.githubusercontent.com/vilaj/IES/$tag/stacks/SmartIES/node-red-settings.js /data/settings.js
+ARG TAG
+ADD --chown=1000 https://raw.githubusercontent.com/vilaj/IES/$TAG/stacks/SmartIES/node-red-settings.js /data/settings.js
 RUN npm install thingzi-logic-timers node-red-contrib-tableify node-omron-read node-red-contrib-cip-ethernet-ip node-red-contrib-cron-plus node-red-contrib-getflowid node-red-contrib-opcua node-red-contrib-postgres-multi node-red-dashboard node-red-contrib-ui-upload node-red-node-email node-red-contrib-spreadsheet-in node-red-contrib-s7
