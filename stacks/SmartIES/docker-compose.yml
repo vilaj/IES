@@ -15,7 +15,7 @@ version: "3.7"
 
 services:
   node-red:
-    build: https://raw.githubusercontent.com/vilaj/IES/main/stacks/SmartIES/Dockerfile-nodered
+    build: https://raw.githubusercontent.com/vilaj/IES/${VERSION}/stacks/SmartIES/Dockerfile-nodered
     image: nodered:smartIES
     deploy:
       resources:
@@ -44,9 +44,9 @@ services:
     restart: unless-stopped
     environment:
       - GF_INSTALL_PLUGINS=agenty-flowcharting-panel,natel-discrete-panel,aidanmountford-html-panel,isaozler-paretochart-panel
-      - GF_RENDERING_SERVER_URL=http://172.31.24.88:38081/render
-      - GF_RENDERING_CALLBACK_URL=http://172.31.24.88:33000/
-      - GF_SERVER_ROOT_URL=http://172.31.24.88:33000/
+      - GF_RENDERING_SERVER_URL=http://${HOST}:38081/render
+      - GF_RENDERING_CALLBACK_URL=http://${HOST}:33000/
+      - GF_SERVER_ROOT_URL=http://${HOST}:33000/
       - GF_SERVER_ENABLE_GZIP=true
     ports:
       - 33000:3000
@@ -68,7 +68,7 @@ services:
     networks:
       - net
   MQTT: 
-    build: https://raw.githubusercontent.com/vilaj/IES/main/stacks/SmartIES/Dockerfile-mosquitto
+    build: https://raw.githubusercontent.com/vilaj/IES/${VERSION}/stacks/SmartIES/Dockerfile-mosquitto
     image: mosquitto:smartIES 
     deploy:
       resources:
