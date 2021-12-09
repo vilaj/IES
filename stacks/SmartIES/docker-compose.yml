@@ -15,8 +15,9 @@ version: "3.8"
 
 services:
   node-red:
-    build: https://raw.githubusercontent.com/vilaj/IES/${VERSION}/stacks/SmartIES/Dockerfile-nodered
-    image: nodered:smartIES
+#    build: https://raw.githubusercontent.com/vilaj/IES/${VERSION}/stacks/SmartIES/Dockerfile-nodered
+#    image: nodered:smartIES
+    image: nodered/nodered:latest
     deploy:
       resources:
         limits:
