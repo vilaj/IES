@@ -30,8 +30,8 @@ services:
       - ${PORT10K}1880:1880
     networks:
       - net
-    volumes:
-      - node-red:/data
+#    volumes:
+#      - node-red:/data
   grafana:    
     image: grafana/grafana:latest
     deploy:
