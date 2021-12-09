@@ -30,7 +30,7 @@ services:
     networks:
       - net
     volumes:
-      - node-red$:/data
+      - node-red:/data
   grafana:    
     image: grafana/grafana:latest
     deploy:
