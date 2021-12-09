@@ -16,6 +16,8 @@ version: "3.8"
 services:
   node-red:
     build: https://raw.githubusercontent.com/vilaj/IES/${VERSION}/stacks/SmartIES/Dockerfile-nodered
+      args:
+        VERSION: ${VERSION} 
     image: nodered:smartIES
     deploy:
       resources:
@@ -69,6 +71,8 @@ services:
       - net
   MQTT: 
     build: https://raw.githubusercontent.com/vilaj/IES/${VERSION}/stacks/SmartIES/Dockerfile-mosquitto
+      args:
+        VERSION: ${VERSION} 
     image: mosquitto:smartIES 
     deploy:
       resources:
