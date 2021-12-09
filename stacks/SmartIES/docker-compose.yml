@@ -20,7 +20,7 @@ services:
       dockerfile: Dockerfile-nodered
       args:
         VERSION: ${tag}
-    image: nodered/smarties:${tag}
+    image: nodered-smarties:${tag}
     deploy:
       resources:
         limits:
@@ -77,7 +77,7 @@ services:
       dockerfile: Dockerfile-mosquitto
       args:
         VERSION: ${tag} 
-    image: mosquitto/smarties:${tag}
+    image: mosquitto-smarties:${tag}
     deploy:
       resources:
         limits:
