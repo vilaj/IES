@@ -44,12 +44,12 @@ services:
     restart: unless-stopped
     environment:
       - GF_INSTALL_PLUGINS=agenty-flowcharting-panel,natel-discrete-panel,aidanmountford-html-panel,isaozler-paretochart-panel
-      - GF_RENDERING_SERVER_URL=http://${HOST}:38081/render
-      - GF_RENDERING_CALLBACK_URL=http://${HOST}:33000/
-      - GF_SERVER_ROOT_URL=http://${HOST}:33000/
+      - GF_RENDERING_SERVER_URL=http://${HOST}:${PORT10K}8081/render
+      - GF_RENDERING_CALLBACK_URL=http://${HOST}:${PORT10K}3000/
+      - GF_SERVER_ROOT_URL=http://${HOST}:${PORT10K}3000/
       - GF_SERVER_ENABLE_GZIP=true
     ports:
-      - 33000:3000
+      - ${PORT10K}3000:3000
     networks:
       - net
     volumes:
@@ -64,7 +64,7 @@ services:
           memory: 1g
     restart: unless-stopped
     ports:
-      - 38081:8081
+      - ${PORT10K}8081:8081
     networks:
       - net
   MQTT: 
@@ -79,9 +79,9 @@ services:
     environment:
       - TZ=Europe/Madrid
     ports:
-      - 31883:1883
-      - 38883:8883
-      - 39001:9001
+      - ${PORT10K}1883:1883
+      - ${PORT10K}8883:8883
+      - ${PORT10K}9001:9001
   timescaleDB:    
     image: timescale/timescaledb:latest-pg12
     deploy:
@@ -97,7 +97,7 @@ services:
       - PGDATA=/var/lib/postgresql/data
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     ports:
-      - 35432:5432
+      - ${PORT10K}5432:5432
     networks:
       - net
     volumes:
@@ -114,7 +114,7 @@ services:
       - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
       - PGADMIN_DEFAULT_PASSWORD=${POSTGRES_PASSWORD}
     ports:
-      - 32080:80
+      - ${PORT10K}2080:80
     networks:
       - net 
 volumes:
