@@ -15,8 +15,8 @@ version: "3.8"
 
 services:
   node-red:
-#    build: https://raw.githubusercontent.com/vilaj/IES/${VERSION}/stacks/SmartIES/Dockerfile-nodered
-#    image: nodered:smartIES
+    build: https://raw.githubusercontent.com/vilaj/IES/${VERSION}/stacks/SmartIES/Dockerfile-nodered
+    image: nodered:smartIES
     image: nodered/node-red:latest
     deploy:
       resources:
@@ -120,7 +120,7 @@ services:
       - net 
 volumes:
   node-red:
-    name: node-red${PORT10K}
+#    name: node-red${PORT10K}
   grafana-config:
     name: grafana-config${PORT10K}
   grafana-data:
