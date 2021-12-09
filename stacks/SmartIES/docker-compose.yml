@@ -95,7 +95,7 @@ services:
     restart: unless-stopped
     environment:
       - PGDATA=/var/lib/postgresql/data
-      - POSTGRES_PASSWORD=timescaleDB
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     ports:
       - 35432:5432
     networks:
@@ -111,8 +111,8 @@ services:
           memory: 4g
     restart: unless-stopped
     environment:
-      - PGADMIN_DEFAULT_EMAIL=jaume.vila@installux-es.com
-      - PGADMIN_DEFAULT_PASSWORD=timescaleDB
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
+      - PGADMIN_DEFAULT_PASSWORD=${POSTGRES_PASSWORD}
     ports:
       - 32080:80
     networks:
