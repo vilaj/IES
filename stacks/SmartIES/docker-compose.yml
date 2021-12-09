@@ -21,7 +21,7 @@ services:
       resources:
         limits:
           cpus: '0.50'
-          memory: 4g
+          memory: 1g
     restart: unless-stopped
     environment:
       - TZ=Europe/Madrid
@@ -39,8 +39,8 @@ services:
           cpus: '1'
           memory: 4000M
         reservations:
-          cpus: '0.10'
-          memory: 1g
+          cpus: '1.00'
+          memory: 4g
     restart: unless-stopped
     environment:
       - GF_INSTALL_PLUGINS=agenty-flowcharting-panel,natel-discrete-panel,aidanmountford-html-panel,isaozler-paretochart-panel
@@ -60,7 +60,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.10'
+          cpus: '0.50'
           memory: 1g
     restart: unless-stopped
     ports:
@@ -73,7 +73,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.20'
+          cpus: '0.50'
           memory: 1g
     restart: unless-stopped
     environment:
@@ -90,7 +90,7 @@ services:
           cpus: '1'
           memory: 5g
         reservations:
-          cpus: '0.25'
+          cpus: '0.50'
           memory: 2g
     restart: unless-stopped
     environment:
@@ -121,7 +121,6 @@ volumes:
   node-red:
   grafana-config:
   grafana-data:
-  mosquitto_data:
   timescaledb-data:
 
 networks:
