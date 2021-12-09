@@ -16,11 +16,11 @@ version: "3.8"
 services:
   node-red:
     build: 
-      context: https://raw.githubusercontent.com/vilaj/IES/${VERSION}/stacks/SmartIES/Dockerfile-nodered
+      context: https://raw.githubusercontent.com/vilaj/IES/${tag}/stacks/SmartIES/Dockerfile-nodered
       dockerfile: Dockerfile-nodered
       args:
-        VERSION: ${VERSION}
-    image: nodered/smarties:${VERSION}
+        VERSION: ${tag}
+    image: nodered/smarties:${tag}
     deploy:
       resources:
         limits:
@@ -73,11 +73,11 @@ services:
       - net
   MQTT: 
     build: 
-      context: https://raw.githubusercontent.com/vilaj/IES/${VERSION}/stacks/SmartIES/Dockerfile-mosquitto
+      context: https://raw.githubusercontent.com/vilaj/IES/${tag}/stacks/SmartIES/Dockerfile-mosquitto
       dockerfile: Dockerfile-mosquitto
       args:
-        VERSION: ${VERSION} 
-    image: mosquitto/smarties:${VERSION}
+        VERSION: ${tag} 
+    image: mosquitto/smarties:${tag}
     deploy:
       resources:
         limits:
