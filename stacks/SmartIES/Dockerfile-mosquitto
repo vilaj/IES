@@ -1,4 +1,4 @@
 # syntax=docker/dockerfile:1
 FROM eclipse-mosquitto:1.6.15
-ADD mosquitto-settings.conf /mosquitto/config/mosquitto.conf
-ADD mosquitto-passwd /etc/mosquitto/passwd
+ADD ./mosquitto-settings.conf /mosquitto/config/mosquitto.conf
+ADD ./mosquitto-passwd /etc/mosquitto/passwd
