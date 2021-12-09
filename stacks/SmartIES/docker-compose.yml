@@ -17,7 +17,6 @@ services:
   node-red:
     build: https://raw.githubusercontent.com/vilaj/IES/main/stacks/SmartIES/Dockerfile-nodered
     image: nodered:smartIES
-#    image: nodered/node-red:latest
     deploy:
       resources:
         limits:
@@ -30,8 +29,8 @@ services:
       - ${PORT10K}1880:1880
     networks:
       - net
-#    volumes:
-#      - node-red:/data
+    volumes:
+      - node-red:/data
   grafana:    
     image: grafana/grafana:latest
     deploy:
