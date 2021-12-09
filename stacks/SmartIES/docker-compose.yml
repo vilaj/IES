@@ -17,7 +17,8 @@ services:
   node-red:
     build: https://raw.githubusercontent.com/vilaj/IES/${VERSION}/stacks/SmartIES/Dockerfile-nodered
       args:
-        VERSION: ${VERSION} 
+        #VERSION: ${VERSION}
+        VERSION: main
     image: nodered:smartIES
     deploy:
       resources:
