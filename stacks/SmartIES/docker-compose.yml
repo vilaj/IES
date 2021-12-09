@@ -120,7 +120,7 @@ services:
       - net 
 volumes:
   node-red:
-    name: nodereddrive
+    name: node-red${PORT10K}
   grafana-config:
     name: grafana-config${PORT10K}
   grafana-data:
