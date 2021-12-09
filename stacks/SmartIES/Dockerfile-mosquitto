@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
 FROM eclipse-mosquitto:1.6.15
-ARG tag
-ADD https://raw.githubusercontent.com/vilaj/IES/${tag}/stacks/SmartIES/mosquitto-settings.conf /mosquitto/config/mosquitto.conf
-ADD https://raw.githubusercontent.com/vilaj/IES/${tag}/stacks/SmartIES/mosquitto-passwd /etc/mosquitto/passwd
+ARG TAG
+ADD https://raw.githubusercontent.com/vilaj/IES/${TAG}/stacks/SmartIES/mosquitto-settings.conf /mosquitto/config/mosquitto.conf
+ADD https://raw.githubusercontent.com/vilaj/IES/${TAG}/stacks/SmartIES/mosquitto-passwd /etc/mosquitto/passwd
