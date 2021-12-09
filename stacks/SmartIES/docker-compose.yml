@@ -30,7 +30,7 @@ services:
     networks:
       - net
     volumes:
-      - node-red:/data
+      - node-red${PORT10K}:/data
   grafana:    
     image: grafana/grafana:latest
     deploy:
@@ -53,8 +53,8 @@ services:
     networks:
       - net
     volumes:
-      - grafana-config:/etc/grafana/
-      - grafana-data:/var/lib/grafana
+      - grafana-config${PORT10K}:/etc/grafana/
+      - grafana-data${PORT10K}:/var/lib/grafana
   grafana-image-renderer:    
     image: grafana/grafana-image-renderer:latest
     deploy:
@@ -101,7 +101,7 @@ services:
     networks:
       - net
     volumes:
-      - timescaledb-data:/var/lib/postgresql/data   
+      - timescaledb-data${PORT10K}:/var/lib/postgresql/data   
   pgadmin:    
     image: dpage/pgadmin4:latest
     deploy:
@@ -118,10 +118,10 @@ services:
     networks:
       - net 
 volumes:
-  node-red:
-  grafana-config:
-  grafana-data:
-  timescaledb-data:
+  node-red${PORT10K}:
+  grafana-config${PORT10K}:
+  grafana-data${PORT10K}:
+  timescaledb-data${PORT10K}:
 
 networks:
   net:
