@@ -119,13 +119,13 @@ services:
       - net 
 volumes:
   node-red:
-    name: node-red${PORT10K}:
+    name: node-red${PORT10K}
   grafana-config:
-    name: grafana-config${PORT10K}:
+    name: grafana-config${PORT10K}
   grafana-data:
-    name: grafana-data${PORT10K}:
+    name: grafana-data${PORT10K}
   timescaledb-data:
-    name: timescaledb-data${PORT10K}:
+    name: timescaledb-data${PORT10K}
 
 networks:
   net:
