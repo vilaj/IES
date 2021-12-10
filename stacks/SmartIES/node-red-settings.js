@@ -1,5 +1,5 @@
 /**
- * This is the default settings file provided by Node-RED..
+ * This is the default settings file provided by Node-RED.
  *
  * It can contain any valid JavaScript code that will get run when Node-RED
  * is started.
