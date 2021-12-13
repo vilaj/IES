@@ -32,7 +32,7 @@ services:
     ports:
       - ${PORT10K}1880:1880
     networks:
-      - net
+      - bridge
     volumes:
       - node-red:/data
   grafana:    
@@ -55,7 +55,7 @@ services:
     ports:
       - ${PORT10K}3000:3000
     networks:
-      - net
+      - bridge
     volumes:
       - grafana-config:/etc/grafana/
       - grafana-data:/var/lib/grafana
@@ -70,7 +70,7 @@ services:
     ports:
       - ${PORT10K}8081:8081
     networks:
-      - net
+      - bridge
   MQTT: 
     build: 
       context: https://raw.githubusercontent.com/vilaj/IES/${TAG}/stacks/SmartIES/Dockerfile-mosquitto
@@ -107,7 +107,7 @@ services:
     ports:
       - ${PORT10K}5432:5432
     networks:
-      - net
+      - bridge
     volumes:
       - timescaledb-data:/var/lib/postgresql/data   
   pgadmin:    
@@ -124,7 +124,7 @@ services:
     ports:
       - ${PORT10K}2080:80
     networks:
-      - net 
+      - bridge 
 volumes:
   node-red:
     name: node-red${PORT10K}
@@ -136,4 +136,4 @@ volumes:
     name: timescaledb-data${PORT10K}
 
 networks:
-  net:
+  bridge:
