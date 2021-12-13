@@ -32,7 +32,7 @@ services:
     ports:
       - ${PORT10K}1880:1880
     networks:
-      - smarties
+      - net
     volumes:
       - node-red:/data
   grafana:    
@@ -52,7 +52,7 @@ services:
     ports:
       - ${PORT10K}3000:3000
     networks:
-      - smarties
+      - net
     volumes:
       - grafana-config:/etc/grafana/
       - grafana-data:/var/lib/grafana
@@ -67,7 +67,7 @@ services:
     ports:
       - ${PORT10K}8081:8081
     networks:
-      - smarties
+      - net
   MQTT: 
     build: 
       context: https://raw.githubusercontent.com/vilaj/IES/${TAG}/stacks/SmartIES/Dockerfile-mosquitto
@@ -88,7 +88,7 @@ services:
       - ${PORT10K}8883:8883
       - ${PORT10K}9001:9001
     networks:
-      - smarties
+      - net
   timescaleDB:    
     image: timescale/timescaledb:latest-pg12
     deploy:
@@ -103,7 +103,7 @@ services:
     ports:
       - ${PORT10K}5432:5432
     networks:
-      - smarties
+      - net
     volumes:
       - timescaledb-data:/var/lib/postgresql/data   
   pgadmin:    
@@ -120,7 +120,7 @@ services:
     ports:
       - ${PORT10K}2080:80
     networks:
-      - smarties
+      - net
 volumes:
   node-red:
     name: node-red${PORT10K}
@@ -131,7 +131,7 @@ volumes:
   timescaledb-data:
     name: timescaledb-data${PORT10K}
 networks:
-  smarties:
+  net:
     driver: bridge
     ipam:
      config:
