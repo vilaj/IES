@@ -31,8 +31,6 @@ services:
       - TZ=Europe/Madrid
     ports:
       - ${PORT10K}1880:1880
-    networks:
-      - bridge
     volumes:
       - node-red:/data
   grafana:    
@@ -42,9 +40,6 @@ services:
         limits:
           cpus: '1'
           memory: 4g
-        reservations:
-          cpus: '0.25'
-          memory: 0.5g
     restart: unless-stopped
     environment:
       - GF_INSTALL_PLUGINS=agenty-flowcharting-panel,natel-discrete-panel,aidanmountford-html-panel,isaozler-paretochart-panel
@@ -54,8 +49,6 @@ services:
       - GF_SERVER_ENABLE_GZIP=true
     ports:
       - ${PORT10K}3000:3000
-    networks:
-      - bridge
     volumes:
       - grafana-config:/etc/grafana/
       - grafana-data:/var/lib/grafana
@@ -69,8 +62,6 @@ services:
     restart: unless-stopped
     ports:
       - ${PORT10K}8081:8081
-    networks:
-      - bridge
   MQTT: 
     build: 
       context: https://raw.githubusercontent.com/vilaj/IES/${TAG}/stacks/SmartIES/Dockerfile-mosquitto
@@ -97,17 +88,12 @@ services:
         limits:
           cpus: '1'
           memory: 5g
-        reservations:
-          cpus: '0.50'
-          memory: 2g
     restart: unless-stopped
     environment:
       - PGDATA=/var/lib/postgresql/data
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     ports:
       - ${PORT10K}5432:5432
-    networks:
-      - bridge
     volumes:
       - timescaledb-data:/var/lib/postgresql/data   
   pgadmin:    
@@ -123,8 +109,6 @@ services:
       - PGADMIN_DEFAULT_PASSWORD=${POSTGRES_PASSWORD}
     ports:
       - ${PORT10K}2080:80
-    networks:
-      - bridge 
 volumes:
   node-red:
     name: node-red${PORT10K}
@@ -135,5 +119,3 @@ volumes:
   timescaledb-data:
     name: timescaledb-data${PORT10K}
 
-networks:
-  bridge:
