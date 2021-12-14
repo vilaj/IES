@@ -117,10 +117,13 @@ services:
     environment:
       - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
       - PGADMIN_DEFAULT_PASSWORD=${POSTGRES_PASSWORD}
+      - PGADMIN_CONFIG_SERVER_MODE='False'
     ports:
       - ${PORT10K}2080:80
     networks:
       - net
+    volumes:
+       - pgadmin:/var/lib/pgadmin
 volumes:
   node-red:
     name: node-red${PORT10K}
@@ -130,6 +133,8 @@ volumes:
     name: grafana-data${PORT10K}
   timescaledb-data:
     name: timescaledb-data${PORT10K}
+  pgadmin:
+    name: pgadmin${PORT10K}
 networks:
   net:
     driver: bridge
