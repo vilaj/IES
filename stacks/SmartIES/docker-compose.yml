@@ -134,7 +134,7 @@ volumes:
   timescaledb-data:
     name: timescaledb-data${PORT10K}
   pgadmin:
-    name: pgadmin${PORT10K}
+    name: pgadmin-data${PORT10K}
 networks:
   net:
     driver: bridge
