@@ -12,7 +12,7 @@ CREATE TABLE rack
 	Jsontag JSONB
 );
 SELECT create_hypertable('rack', 'time');
-CREATE INDEX ON rack(rackid, workorder, salesorder, colour, customer, time) ;
+CREATE INDEX ON rack(rackid, workorder, salesorder, color, customer, time) ;
 
 CREATE TABLE measures
 (
