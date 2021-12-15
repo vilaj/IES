@@ -35,7 +35,7 @@ CREATE TABLE parameters
 (
     par_name character varying(32) ,
     par_value json
-)
+);
 
 CREATE TABLE paros
 (
@@ -54,7 +54,7 @@ CREATE TABLE paros
     paros_punto character varying(3),
     paros_equipo integer,
     paros_codigo character varying(2) 
-)
+);
 
 CREATE TABLE partesprensa
 (
