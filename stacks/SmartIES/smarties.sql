@@ -13,6 +13,7 @@ CREATE TABLE rack
 );
 SELECT create_hypertable('rack', 'time');
 CREATE INDEX ON rack(rackid, workorder, salesorder, color, customer, time) ;
+SELECT add_retention_policy('rack', INTERVAL '1 year');
 
 CREATE TABLE measures
 (
@@ -30,6 +31,7 @@ CREATE TABLE measures
 );
 SELECT create_hypertable('measures', 'time',chunk_time_interval => INTERVAL '1 day');
 CREATE INDEX ON measures(time,measurementid,plant,area,equipment,deviceid) ;
+SELECT add_retention_policy('measures', INTERVAL '1 year');
 
 CREATE TABLE parameters
 (
@@ -82,4 +84,4 @@ CREATE TABLE partesprensa
     pphorafinal timestamp with time zone,
     ppkgh integer,
     ppsilueta character varying 
-)
+);
