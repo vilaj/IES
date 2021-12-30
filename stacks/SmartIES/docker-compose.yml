@@ -142,7 +142,7 @@ services:
     restart: unless-stopped
     ports:
       - ${PORT10K}3080:80
-      - ${PORT10K}38080:8080
+      - ${PORT10K}8080:8080
     networks:
       - net
     volumes:
