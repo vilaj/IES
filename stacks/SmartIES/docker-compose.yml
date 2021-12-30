@@ -130,10 +130,11 @@ services:
     volumes:
        - pgadmin:/var/lib/pgadmin
   filebrowser:
-    build: 
-      context: https://raw.githubusercontent.com/vilaj/IES/${TAG}/stacks/SmartIES/Dockerfile-filebrowser
-      dockerfile: Dockerfile-filebrowser
-    image: filebrowser-smarties:${TAG}
+#    build: 
+#      context: https://raw.githubusercontent.com/vilaj/IES/${TAG}/stacks/SmartIES/Dockerfile-filebrowser
+#      dockerfile: Dockerfile-filebrowser
+#    image: filebrowser-smarties:${TAG}
+    image: nginx:latest
     deploy:
       resources:
         limits:
