@@ -130,7 +130,7 @@ services:
     volumes:
        - pgadmin:/var/lib/pgadmin
   filebrowser:
-    image: filebrowser:filebrowser:latest
+    image: filebrowser/filebrowser:latest
     deploy:
       resources:
         limits:
@@ -142,7 +142,9 @@ services:
     networks:
       - net
     volumes:
-       - filebrowser:/srv     
+       - filebrowser:/database.db
+       - filebrowser:/srv
+       - filebrowser:/.filebrowser.json     
 volumes:
   node-red:
     name: node-red${PORT10K}
