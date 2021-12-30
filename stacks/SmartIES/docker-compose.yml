@@ -133,7 +133,7 @@ services:
     build: 
       context: https://raw.githubusercontent.com/vilaj/IES/${TAG}/stacks/SmartIES/Dockerfile-filebrowser
       dockerfile: Dockerfile-filebrowser
-    image: nodered-smarties:${TAG}
+    image: filebrowser-smarties:${TAG}
     deploy:
       resources:
         limits:
