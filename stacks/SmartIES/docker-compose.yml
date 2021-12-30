@@ -131,7 +131,7 @@ services:
        - pgadmin:/var/lib/pgadmin
   filebrowser:
     image: filebrowser/filebrowser:latest
-    command: ["touch $(PWD)/database.db"]
+    command: ["touch $$(PWD)/database.db"]
     deploy:
       resources:
         limits:
