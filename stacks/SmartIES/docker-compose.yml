@@ -131,6 +131,7 @@ services:
        - pgadmin:/var/lib/pgadmin
   filebrowser:
     image: filebrowser/filebrowser:latest
+    command: bash -c "touch $(PWD)/database.db && touch $(PWD)/.filebrowser.json"
     deploy:
       resources:
         limits:
@@ -142,7 +143,9 @@ services:
     networks:
       - net
     volumes:
-       - filebrowser:/   
+       - filebrowser:/srv 
+       - $(PWD)/database.db:/database.db
+       - $(PWD)/.filebrowser.json:/.filebrowser.json
 volumes:
   node-red:
     name: node-red${PORT10K}
