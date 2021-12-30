@@ -143,7 +143,7 @@ services:
       - net
     volumes:
        - filebrowser:/srv   
-       - $(PWD)/database.db:/database.db
+       - /var/lib/docker/volumes/filebrowserDB${PORT10K}/_data/database.db:/database.db
 volumes:
   node-red:
     name: node-red${PORT10K}
