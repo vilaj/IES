@@ -143,6 +143,7 @@ services:
       - net
     volumes:
        - filebrowser:/srv   
+       - filebrowserDB:/database.db
 volumes:
   node-red:
     name: node-red${PORT10K}
@@ -156,6 +157,8 @@ volumes:
     name: pgadmin-data${PORT10K}
   filebrowser:
     name: filebrowser${PORT10K}
+  filebrowserDB:
+    name: filebrowserDB${PORT10K}
 networks:
   net:
     driver: bridge
