@@ -156,6 +156,8 @@ volumes:
     name: pgadmin-data${PORT10K}
   filebrowser:
     name: filebrowser${PORT10K}
+  filebrowser_config:
+    name: filebrowser_config${PORT10K}
 networks:
   net:
     driver: bridge
