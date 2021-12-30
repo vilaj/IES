@@ -143,8 +143,8 @@ services:
       - net
     volumes:
        - filebrowser:/srv
-       - filebrowser_config/database.db:/database.db
-       - filebrowser_config/.filebrowser.json:/.filebrowser.json
+       - /var/lib/docker/volumes/filebrowser_config${PORT10K}/_data/database.db:/database.db
+       - /var/lib/docker/volumes/filebrowser_config${PORT10K}/_data/.filebrowser.json:/.filebrowser.json
 volumes:
   node-red:
     name: node-red${PORT10K}
