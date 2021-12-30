@@ -56,6 +56,7 @@ services:
       - GF_SMTP_SKIP_VERIFY=true
       - GF_SMTP_FROM_ADDRESS=noreply@installux-es.com
       - GF_SMTP_FROM_NAME=SmartIES
+      - GF_UNIFIED_ALERTING_ENABLED=false
     ports:
       - ${PORT10K}3000:3000
     networks:
