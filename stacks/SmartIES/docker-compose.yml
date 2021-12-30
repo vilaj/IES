@@ -146,6 +146,8 @@ services:
        - /var/lib/docker/volumes/filebrowser_config${PORT10K}/_data/database.db:/database.db
        - /var/lib/docker/volumes/filebrowser_config${PORT10K}/_data/.filebrowser.json:/.filebrowser.json
        - filebrowser_config:/config
+       - filebrowser3:/srv3
+       - filebrowser_config3:/config3
 volumes:
   node-red:
     name: node-red${PORT10K}
@@ -161,6 +163,10 @@ volumes:
     name: filebrowser${PORT10K}
   filebrowser_config:
     name: filebrowser_config${PORT10K}
+  filebrowser3:
+    name: filebrowser3
+  filebrowser_config3:
+    name: filebrowser_config3
 networks:
   net:
     driver: bridge
