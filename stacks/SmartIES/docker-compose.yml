@@ -45,10 +45,17 @@ services:
     restart: unless-stopped
     environment:
       - GF_INSTALL_PLUGINS=agenty-flowcharting-panel,natel-discrete-panel,aidanmountford-html-panel,isaozler-paretochart-panel
-      - GF_RENDERING_SERVER_URL=http://${HOST}:${PORT10K}8081/render
+      - GF_RENDERING_SERVER_URL=http://grafana-image-renderer:8081/render
       - GF_RENDERING_CALLBACK_URL=http://${HOST}:${PORT10K}3000/
       - GF_SERVER_ROOT_URL=http://${HOST}:${PORT10K}3000/
       - GF_SERVER_ENABLE_GZIP=true
+      - GF_PANELS_DISABLE_SANITIZE_HTML=true
+      - GF_SNAPSHOTS_EXTERNAL_ENABLED=false
+      - GF_SMTP_ENABLED=true
+      - GF_SMTP_HOST=srv-exchange1.doma.fr:25
+      - GF_SMTP_SKIP_VERIFY=true
+      - GF_SMTP_FROM_ADDRESS=noreply@installux-es.com
+      - GF_SMTP_FROM_NAME=SmartIES
     ports:
       - ${PORT10K}3000:3000
     networks:
@@ -64,8 +71,6 @@ services:
           cpus: '0.50'
           memory: 1g
     restart: unless-stopped
-    ports:
-      - ${PORT10K}8081:8081
     networks:
       - net
   MQTT: 
