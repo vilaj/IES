@@ -142,9 +142,7 @@ services:
     networks:
       - net
     volumes:
-       - filebrowser:/database.db
-       - filebrowser:/srv
-       - filebrowser:/.filebrowser.json     
+       - filebrowser:/srv   
 volumes:
   node-red:
     name: node-red${PORT10K}
