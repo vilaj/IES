@@ -142,8 +142,7 @@ services:
     networks:
       - net
     volumes:
-       - filebrowser:/srv   
-       - /var/lib/docker/volumes/filebrowserDB${PORT10K}/_data/database.db:/database.db
+       - filebrowser:/   
 volumes:
   node-red:
     name: node-red${PORT10K}
