@@ -130,11 +130,10 @@ services:
     volumes:
        - pgadmin:/var/lib/pgadmin
   filebrowser:
-#    build: 
-#      context: https://raw.githubusercontent.com/vilaj/IES/${TAG}/stacks/SmartIES/Dockerfile-filebrowser
-#      dockerfile: Dockerfile-filebrowser
-#    image: filebrowser-smarties:${TAG}
-    image: nginx:latest
+    build: 
+      context: https://raw.githubusercontent.com/vilaj/IES/${TAG}/stacks/SmartIES/Dockerfile-filebrowser
+      dockerfile: Dockerfile-filebrowser
+    image: filebrowser-smarties:${TAG}
     deploy:
       resources:
         limits:
@@ -146,10 +145,10 @@ services:
       - ${PORT10K}8080:8080
     networks:
       - net
-#    volumes:
-#       - filebrowser:/usr/share/nginx/html
-#       - /var/lib/docker/volumes/filebrowser_config${PORT10K}/_data/filebrowser.db:/filebrowser.db
-#       - filebrowser_config:/config
+    volumes:
+       - filebrowser:/usr/share/nginx/html
+       - /var/lib/docker/volumes/filebrowser_config${PORT10K}/_data/database.db:/filebrowser.db
+       - filebrowser_config:/config
 volumes:
   node-red:
     name: node-red${PORT10K}
