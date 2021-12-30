@@ -131,7 +131,7 @@ services:
        - pgadmin:/var/lib/pgadmin
   filebrowser:
     image: filebrowser/filebrowser:latest
-    command: ["touch $$(PWD)/database.db"]
+    command: ["touch /var/lib/docker/volumes/filebrowserDB4/_data/database.db"]
     deploy:
       resources:
         limits:
@@ -144,7 +144,7 @@ services:
       - net
     volumes:
        - filebrowser:/srv 
-       - $$(PWD)/database.db:/database.db
+       - /var/lib/docker/volumes/filebrowserDB4/_data/database.db:/database.db
 volumes:
   node-red:
     name: node-red${PORT10K}
