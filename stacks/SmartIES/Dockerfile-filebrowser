@@ -1,4 +1,4 @@
 # syntax=docker/dockerfile:1
 FROM nginx:latest
-RUN curl -fsSL https://raw.githubusercontent.com/filebrowser/get/master/get.sh | bash
+# RUN curl -fsSL https://raw.githubusercontent.com/filebrowser/get/master/get.sh | bash
 # RUN filebrowser -p 8080 -a filebrowser -r /usr/share/nginx/html
