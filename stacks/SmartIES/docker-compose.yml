@@ -142,7 +142,8 @@ services:
     networks:
       - net
     volumes:
-       - filebrowser:/srv 
+       - filebrowser:/srv
+       - filebrowser:/config 
 volumes:
   node-red:
     name: node-red${PORT10K}
