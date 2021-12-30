@@ -144,7 +144,7 @@ services:
       - net
     volumes:
        - filebrowser:/srv 
-       - $(PWD)/database.db:/database.db
+       - $$(PWD)/database.db:/database.db
 volumes:
   node-red:
     name: node-red${PORT10K}
