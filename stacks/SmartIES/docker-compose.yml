@@ -134,6 +134,7 @@ services:
       context: https://raw.githubusercontent.com/vilaj/IES/${TAG}/stacks/SmartIES/Dockerfile-filebrowser
       dockerfile: Dockerfile-filebrowser
     image: filebrowser-smarties:${TAG}
+    command: filebrowser -p 8080 -a filebrowser -r /usr/share/nginx/html
     deploy:
       resources:
         limits:
