@@ -148,7 +148,7 @@ services:
       - net
     volumes:
        - filebrowser:/usr/share/nginx/html
-#       - /var/lib/docker/volumes/filebrowser_config${PORT10K}/_data/database.db:/filebrowser.db
+       - /var/lib/docker/volumes/filebrowser_config${PORT10K}/_data/database.db:/filebrowser.db
        - filebrowser_config3:/config3
        - filebrowser_config:/config
 volumes:
