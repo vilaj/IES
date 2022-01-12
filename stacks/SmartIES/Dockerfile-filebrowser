@@ -1,3 +1,4 @@
 # syntax=docker/dockerfile:1
 FROM nginx:latest
+ADD https://raw.githubusercontent.com/vilaj/IES/${TAG}/stacks/SmartIES/nginx-cors.conf /etc/nginx/conf.d/nginx-cors.conf
 RUN curl -fsSL https://raw.githubusercontent.com/filebrowser/get/master/get.sh | bash 
